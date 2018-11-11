@@ -171,18 +171,18 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="base.bmp" />
-    <Image Include="baseMask.bmp" />
-    <Image Include="damage.bmp" />
-    <Image Include="damageMask.bmp" />
-    <Image Include="damagetop.bmp" />
-    <Image Include="damagetopMask.bmp" />
-    <Image Include="invaders.bmp" />
-    <Image Include="invadersMask.bmp" />
-    <Image Include="player.bmp" />
-    <Image Include="playerMask.bmp" />
-    <Image Include="saucer.bmp" />
-    <Image Include="saucerMask.bmp" />
+    <Image Include="Sprite\Enemy Bullet.bmp" />
+    <Image Include="Sprite\Invader 1 mask.bmp" />
+    <Image Include="Sprite\Invader 1.bmp" />
+    <Image Include="Sprite\Invader 2 Mask.bmp" />
+    <Image Include="Sprite\Invader 2.bmp" />
+    <Image Include="Sprite\Invader 3 Mask.bmp" />
+    <Image Include="Sprite\Invader 3.bmp" />
+    <Image Include="Sprite\mothership.bmp" />
+    <Image Include="Sprite\mothershipMask.bmp" />
+    <Image Include="Sprite\Player Bullet.bmp" />
+    <Image Include="Sprite\player.bmp" />
+    <Image Include="Sprite\playerMask.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

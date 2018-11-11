@@ -102,40 +102,40 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="base.bmp">
+    <Image Include="Sprite\playerMask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="baseMask.bmp">
+    <Image Include="Sprite\Enemy Bullet.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="damage.bmp">
+    <Image Include="Sprite\Invader 1 mask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="damageMask.bmp">
+    <Image Include="Sprite\Invader 1.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="damagetop.bmp">
+    <Image Include="Sprite\Invader 2 Mask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="damagetopMask.bmp">
+    <Image Include="Sprite\Invader 2.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="invaders.bmp">
+    <Image Include="Sprite\Invader 3 Mask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="invadersMask.bmp">
+    <Image Include="Sprite\Invader 3.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="player.bmp">
+    <Image Include="Sprite\mothership.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="playerMask.bmp">
+    <Image Include="Sprite\mothershipMask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="saucer.bmp">
+    <Image Include="Sprite\Player Bullet.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="saucerMask.bmp">
+    <Image Include="Sprite\player.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
   </ItemGroup>
