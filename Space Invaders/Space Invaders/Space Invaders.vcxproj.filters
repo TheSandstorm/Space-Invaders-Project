@@ -51,6 +51,9 @@
     <ClCompile Include="bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="enemyBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backbuffer.h">
@@ -89,6 +92,9 @@
     <ClInclude Include="bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="enemyBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -96,41 +102,77 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\base.bmp">
+    <Image Include="base.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="baseMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="damage.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="damageMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="damagetop.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="damagetopMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="invaders.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="invadersMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="player.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="playerMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="saucer.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="saucerMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\base.bmp">
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\baseMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damage.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damageMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetop.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetopMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invaders.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invadersMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\player.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\playerMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucer.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucerMask.bmp">
-      <Filter>Resource Files\Bitmaps</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
 </Project>
