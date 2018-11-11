@@ -21,7 +21,7 @@
 
 // Local Includes
 #include "entity.h"
-
+#include "sprite.h"
 // Types
 
 // Constants
