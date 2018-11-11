@@ -31,7 +31,7 @@ CEnemy::~CEnemy()
 {
 }
 
-void CEnemy::draw()
+void CEnemy::Draw()
 {
 	// Check if the enemy needs drawing
 	if (!m_bShot)
@@ -40,12 +40,12 @@ void CEnemy::draw()
 	}
 }
 
-void CEnemy::shoot()
+void CEnemy::Shoot()
 {
-	new CEnemyBullet(m_fX, m_fY);
+	m_pBullet = new CEnemyBullet(m_fX, m_fY);
 }
 
-void CEnemy::move()
+void CEnemy::Move()
 {
 	// Move enemy
 	if (m_bDirectionRight)
@@ -58,10 +58,10 @@ void CEnemy::move()
 	}
 
 	// Call upon the draw function
-	draw();
+	Draw();
 }
 
-void CEnemy::drop()
+void CEnemy::Drop()
 {
 	// Change direction
 	if (m_bDirectionRight)

@@ -14,10 +14,15 @@
 
 #pragma once
 
-// Local includes
+// Library Includes
+#include <vector>
+// Local Includes
+#include "entity.h"
+#include "clock.h"
+#include "bullet.h"
 #include "enemyBullet.h"
 
-class CEnemy
+class CEnemy : public CEntity 
 {
 public:
 	// Constructors and destructors
@@ -33,8 +38,10 @@ public:
 	float m_fY;
 
 	// Functions
-	void draw();
-	void shoot();
-	void move();
-	void drop();
+	void Initialise();
+	void Draw();
+	void Process(float _fdeltatime);
+	void Shoot();
+	void Move();
+	void Drop();
 };
