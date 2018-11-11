@@ -13,6 +13,10 @@
 //
 
 #pragma once
+
+// Local includes
+#include "entity.h"
+
 class CEnemyBullet
 {
 public:

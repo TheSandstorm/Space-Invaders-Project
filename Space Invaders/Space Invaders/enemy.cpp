@@ -37,12 +37,13 @@ void CEnemy::draw()
 	if (!m_bShot)
 	{
 		// Draw here
+		CEntity::Draw();
 	}
 }
 
 void CEnemy::shoot()
 {
-	new CEnemyBullet(m_fX, m_fY);
+	new CEnemyBullet(m_fX, m_fY, 1.0f);
 }
 
 void CEnemy::move()

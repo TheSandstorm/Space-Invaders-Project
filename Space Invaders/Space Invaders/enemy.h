@@ -16,6 +16,7 @@
 
 // Local includes
 #include "enemyBullet.h"
+#include "entity.h"
 
 class CEnemy
 {
