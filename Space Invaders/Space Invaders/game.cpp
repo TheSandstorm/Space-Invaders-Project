@@ -75,8 +75,8 @@ CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
 		m_pBackground = new CBackGround();
 		VALIDATE(m_pBackground->Initialise());
 		//Set the background position to start from {0,0}
-		m_pBackground->SetX((float)m_iWidth / 2);
-		m_pBackground->SetY((float)m_iHeight / 2);
+		m_pBackground->SetX((float)_iWidth / 2);
+		m_pBackground->SetY((float)_iHeight / 2);
 	}
 
 	m_pLevel = new CLevel();
@@ -94,6 +94,7 @@ CGame::Draw()
 
 	m_pBackground->Draw();
 // Do all the game’s drawing here...
+	m_pLevel->Draw();
 
     m_pBackBuffer->Present();
 }
@@ -103,6 +104,9 @@ CGame::Process(float _fDeltaTick)
 {
     // Process all the game’s logic here.
 	//Load a new sprite.
+	m_pBackground->Process(_fDeltaTick);
+
+	m_pLevel->Process(_fDeltaTick);
 	
 }
 

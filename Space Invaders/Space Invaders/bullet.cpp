@@ -15,14 +15,13 @@
 bool
 CBullet::Initialise(float _fPosX, float _fPosY, float _fVelocityY)
 {
-	const int iMask = IDB_BULLETMASK; //ID 
+	const int iMask = IDB_BulletMask; //ID 
 
-	int iSprite = IDB_BULLETS;
+	int iSprite = IDB_PlayerBullet;
 
 	m_pSprite = new CSprite();
 
 	m_pSprite->Initialise(iSprite, iMask);
-	m_pSprite->SetWidth(8);
 
 	m_fX = _fPosX;
 	m_fY = _fPosY;

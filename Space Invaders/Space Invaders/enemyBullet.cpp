@@ -33,7 +33,7 @@ void CEnemyBullet::Draw()
 	if (!m_bHit)
 	{
 		// Draw here
-		CEntity::Draw();
+		//CEntity::Draw();
 	}
 }
 

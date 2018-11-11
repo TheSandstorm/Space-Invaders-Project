@@ -17,7 +17,7 @@
 // Prototypes
 class CFPSCounter;
 class CBackGround;
-//class IEnemy;
+class CEnemy;
 class CBullet;
 class CEnemyBullet;
 class CPlayer;
@@ -54,11 +54,18 @@ protected:
 	int m_iWidth;
 	int m_iHeight;
 
+	std::vector<CEnemy*> m_vecEnemies;
+	std::vector<bool> m_vecbAlienColumns = { true , true ,true, true, true, true, true, true, true, true, true, true };
+
 	float m_fDeltaTick;
 private:
 	bool bBulletExists;
 	bool AlienShoot(int _iStack, float _fDeltaTick);
+	float m_fSpeedModifier;
 	float m_fTime;
+
+	//Debug values
+	int m_fAlienShootMod;
 };
 
 #endif // __LEVEL_H__

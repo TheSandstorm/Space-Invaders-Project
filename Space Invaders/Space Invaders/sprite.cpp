@@ -87,8 +87,8 @@ CSprite::Draw()
     int iW = GetWidth();
     int iH = GetHeight();
 
-    int iX = m_iX - (iW / 2);
-    int iY = m_iY - (iH / 2);
+	int iX = m_iX - (iW / 2);
+	int iY = m_iY - (iH / 2);
 
 	if (m_iDestSizeW == 0 && m_iDestSizeH == 0)
 	{

@@ -141,5 +141,11 @@
     <Image Include="Sprite\Enemy Bullet Mask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
+    <Image Include="Sprite\BackGround.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
+    <Image Include="Sprite\BackGroundMask.bmp">
+      <Filter>Resource Files\Bitmaps</Filter>
+    </Image>
   </ItemGroup>
 </Project>

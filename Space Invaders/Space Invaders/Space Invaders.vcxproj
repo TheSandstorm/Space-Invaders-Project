@@ -171,6 +171,8 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Sprite\BackGround.bmp" />
+    <Image Include="Sprite\BackGroundMask.bmp" />
     <Image Include="Sprite\Enemy Bullet Mask.bmp" />
     <Image Include="Sprite\Enemy Bullet.bmp" />
     <Image Include="Sprite\Invader 1 mask.bmp" />

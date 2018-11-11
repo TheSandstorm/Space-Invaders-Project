@@ -32,13 +32,15 @@ public:
 	~CEnemy();
 
 	// Functions
-	void Initialise();
+	virtual bool Initialise();
 	void Draw();
 	void Process(float _fdeltatime);
 	void Shoot(std::vector<CEnemyBullet*> *_vecEnemyBullets);
-	void Drop();
 	void SetHit(bool _b);
 	bool Ishit()const;
+
+	void SetSprite(int _iSprite);
+	void SetSpriteMask(int _iSpriteMask);
 
 	int GetPoints();
 	void SetPoints(int _iPoints);
@@ -54,7 +56,8 @@ public:
 	float m_fSpeed;
 	int m_iDirection;
 	bool m_bWallHit;
-
+	int m_iSprite;
+	int m_iSpriteMask;
 	void MoveDown(float _fDeltaTick);
 	CEnemyBullet* GetBullet();
 	void SetBullet(CEnemyBullet*);

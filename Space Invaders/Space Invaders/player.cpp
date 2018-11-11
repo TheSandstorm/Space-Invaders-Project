@@ -46,13 +46,13 @@ bool
 CPlayer::Initialise(const int _iScreenWidth)
 {
 	//ID's need to be put into the player
-	VALIDATE(CEntity::Initialise(/* Sprite */,/* Mask */ ));
+	VALIDATE(CEntity::Initialise(IDB_Player,IDB_PlayerMask));
 	//Sprite Size
-	CEntity::m_pSprite->SetDestSizeW();
-	CEntity::m_pSprite->SetDestSizeH();
+	CEntity::m_pSprite->SetDestSizeW(32);
+	CEntity::m_pSprite->SetDestSizeH(16);
 	m_iScreenWidth = _iScreenWidth;
 	//Bullet Speed
-	m_iBulletSpeed = -0;
+	m_iBulletSpeed = -300;
 	return (true);
 }
 
@@ -85,15 +85,14 @@ CPlayer::Process(float _fDeltaTick)
 		}
 
 	}
-	if (m_fX - fHalfPlayerW <= 0)
+	if (m_fX <= 0)
 	{
-		m_fX = fHalfPlayerW;
+		m_fX = 0;
 	}
 	else if (m_fX + fHalfPlayerW >= m_iScreenWidth)
 	{
 		m_fX = m_iScreenWidth - fHalfPlayerW;
 	}
-
 
 	CEntity::Process(_fDeltaTick);
 }

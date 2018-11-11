@@ -4,7 +4,6 @@
 //
 #define IDB_EnemyBullet                 127
 #define IDB_Enemy1Mask                  129
-#define IDB_BITMAP3                     130
 #define IDB_Enemy1                      130
 #define IDB_Enemy2Mask                  131
 #define IDB_Enemy2                      132
@@ -16,12 +15,14 @@
 #define IDB_Player                      138
 #define IDB_PlayerMask                  139
 #define IDB_BulletMask                  142
+#define IDB_BackGround                  143
+#define IDB_BackGroundMask              144
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        143
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           101
