@@ -4,6 +4,13 @@ c:\users\john strange\documents\github\space-invaders-project\space invaders\spa
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(49): error C2059: syntax error: ')'
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(51): error C2660: 'CSprite::SetDestSizeW': function does not take 0 arguments
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(52): error C2660: 'CSprite::SetDestSizeH': function does not take 0 arguments
+  enemyBullet.cpp
+c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\enemybullet.cpp(36): error C2352: 'CEntity::Draw': illegal call of non-static member function
+  c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\entity.h(41): note: see declaration of 'CEntity::Draw'
+  enemy.cpp
+c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\enemy.cpp(55): error C2039: 'Initialise': is not a member of 'CEnemyBullet'
+  c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\enemybullet.h(21): note: see declaration of 'CEnemyBullet'
+c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\enemy.cpp(55): error C2065: 'm_iBulletSpeed': undeclared identifier
   bullet.cpp
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\bullet.cpp(18): error C2065: 'IDB_BULLETMASK': undeclared identifier
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\bullet.cpp(20): error C2065: 'IDB_BULLETS': undeclared identifier
@@ -11,4 +18,10 @@ c:\users\john strange\documents\github\space-invaders-project\space invaders\spa
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\background.cpp(48): error C2143: syntax error: missing ')' before ','
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\background.cpp(48): error C2660: 'CEntity::Initialise': function does not take 0 arguments
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\background.cpp(48): error C2059: syntax error: ')'
+  backbuffer.cpp
   Generating Code...
+  Compiling...
+  level.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  entity.cpp

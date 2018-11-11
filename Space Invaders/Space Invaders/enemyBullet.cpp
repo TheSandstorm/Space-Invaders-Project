@@ -27,7 +27,7 @@ CEnemyBullet::~CEnemyBullet()
 {
 }
 
-void CEnemyBullet::draw()
+void CEnemyBullet::Draw()
 {
 	// Check if the enemy needs drawing
 	if (!m_bHit)
@@ -37,13 +37,13 @@ void CEnemyBullet::draw()
 	}
 }
 
-void CEnemyBullet::move()
+void CEnemyBullet::Move()
 {
 	// Move the bullet downwards
 	m_fY += 10;
 }
 
-void CEnemyBullet::hit()
+void CEnemyBullet::Hit()
 {
 
 }

@@ -31,7 +31,7 @@ public:
 	bool m_bHit;
 
 	// Functions
-	void draw();
-	void move();
-	void hit();
+	void Draw();
+	void Move();
+	void Hit();
 };

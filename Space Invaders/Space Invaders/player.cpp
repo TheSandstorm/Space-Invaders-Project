@@ -46,7 +46,7 @@ bool
 CPlayer::Initialise(const int _iScreenWidth)
 {
 	//ID's need to be put into the player
-	VALIDATE(CEntity::Initialise(, ));
+	VALIDATE(CEntity::Initialise(/* Sprite */,/* Mask */ ));
 	//Sprite Size
 	CEntity::m_pSprite->SetDestSizeW();
 	CEntity::m_pSprite->SetDestSizeH();

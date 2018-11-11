@@ -16,18 +16,22 @@
 #include "enemy.h"
 
 // Constructor
-CEnemy::CEnemy(float xPos, float yPos, float speed)
+CEnemy::CEnemy()
+	: m_bHit(false),
+	m_fTime(0),
+	m_fSpeed(1.0f),
+	m_iDirection(1),
+	m_bWall(false)
 {
-	m_bShot = false;
-	m_bWall = false;
 	m_bDirectionRight = true;
-	m_fX = xPos;
-	m_fY = yPos;
-	m_fSpeed = speed;
 }
 
 // Destructor
 CEnemy::~CEnemy()
+{
+}
+
+void CEnemy::Initialise()
 {
 }
 
@@ -41,29 +45,14 @@ void CEnemy::Draw()
 	}
 }
 
-void CEnemy::Shoot()
+void CEnemy::Process(float _fdeltatime)
 {
-<<<<<<< HEAD
-	m_pBullet = new CEnemyBullet(m_fX, m_fY);
-=======
-	new CEnemyBullet(m_fX, m_fY, 1.0f);
->>>>>>> f2db33fca6ebd3ccfae8274d6d9b36a66c27cd12
 }
 
-void CEnemy::Move()
+void CEnemy::Shoot(std::vector<CEnemyBullet*>* _vecEnemyBullets)
 {
-	// Move enemy
-	if (m_bDirectionRight)
-	{
-		m_fX += m_fSpeed;
-	}
-	else
-	{
-		m_fX -= m_fSpeed;
-	}
-
-	// Call upon the draw function
-	Draw();
+	m_pEnemyBullet = new CEnemyBullet(m_fX, m_fY, 1.0f);
+	m_pEnemyBullet->Initialise(m_fX, m_fY - 15, m_iBulletSpeed);
 }
 
 void CEnemy::Drop()
@@ -80,4 +69,30 @@ void CEnemy::Drop()
 
 	// Drop the enemies down
 	m_fY += 20;
+}
+
+void CEnemy::SetHit(bool _b)
+{
+}
+
+bool CEnemy::Ishit() const
+{
+	return false;
+}
+
+int CEnemy::GetPoints()
+{
+	return 0;
+}
+
+void CEnemy::SetPoints(int _iPoints)
+{
+}
+
+void CEnemy::SetSpeed(float _fSpeed)
+{
+}
+
+void CEnemy::Move(float _fDeltaTick)
+{
 }
