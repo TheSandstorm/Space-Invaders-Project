@@ -144,6 +144,7 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="clock.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="level.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="bullet.h" />
     <ClInclude Include="clock.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyBullet.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="level.h" />
@@ -181,6 +183,18 @@
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\playerMask.bmp" />
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucer.bmp" />
     <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucerMask.bmp" />
+    <Image Include="base.bmp" />
+    <Image Include="baseMask.bmp" />
+    <Image Include="damage.bmp" />
+    <Image Include="damageMask.bmp" />
+    <Image Include="damagetop.bmp" />
+    <Image Include="damagetopMask.bmp" />
+    <Image Include="invaders.bmp" />
+    <Image Include="invadersMask.bmp" />
+    <Image Include="player.bmp" />
+    <Image Include="playerMask.bmp" />
+    <Image Include="saucer.bmp" />
+    <Image Include="saucerMask.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

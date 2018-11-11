@@ -13,28 +13,21 @@
 //
 
 #pragma once
-
-// Local includes
-#include "enemyBullet.h"
-
-class CEnemy
+class CEnemyBullet
 {
 public:
 	// Constructors and destructors
-	CEnemy(float xPos, float yPos, float speed);
-	~CEnemy();
+	CEnemyBullet(float xPos, float yPos, float speed);
+	~CEnemyBullet();
 
 	// Variables
-	bool m_bShot;
-	bool m_bWall;
-	bool m_bDirectionRight;
-	float m_fSpeed;
 	float m_fX;
 	float m_fY;
+	float m_fSpeed;
+	bool m_bHit;
 
 	// Functions
 	void draw();
-	void shoot();
 	void move();
-	void drop();
+	void hit();
 };
