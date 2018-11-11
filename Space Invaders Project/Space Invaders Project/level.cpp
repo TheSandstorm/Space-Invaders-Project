@@ -53,8 +53,8 @@ bool
 CLevel::Initialise(int _iWidth, int _iHeight)
 {
 
-	m_iHeight = _iWidth;
-	m_iWidth = _iHeight;
+	m_iHeight = _iHeight;
+	m_iWidth = _iWidth;
 
 	if (m_pPlayer == nullptr)
 	{
@@ -70,7 +70,7 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 
 	const int kiEnemyStart = 60;
 	const int kiStartX = 50;
-	const int kiGap = 32;
+	const int kiGap = 35;
 
 	int iCurrentX = kiStartX;
 	int iCurrentY = 30;
