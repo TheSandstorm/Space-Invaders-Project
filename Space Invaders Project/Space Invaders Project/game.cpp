@@ -120,7 +120,7 @@ CGame::ExecuteOneFrame()
 
     m_pClock->Process();
 
-    Sleep(1);
+	Sleep(1);
 }
 
 CGame&

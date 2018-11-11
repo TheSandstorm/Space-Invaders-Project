@@ -38,6 +38,9 @@ public:
 
 protected:
 	//Collision stuff goes here
+	void EnemyBulletWallCollision();
+	bool EnemyBulletCollision();
+
 	void UpdateScoreText();
 	void DrawScore();
 	void DrawHealth();

@@ -23,6 +23,8 @@
 
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"
 
+CGame& rGame = CGame::GetInstance();
+
 LRESULT CALLBACK
 WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 {
@@ -91,6 +93,7 @@ int WINAPI
 WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _iCmdshow)
 {
     MSG msg;
+	RECT _rect;
     ZeroMemory(&msg, sizeof(MSG));
 
 	const int kiWidth = 960;
@@ -98,9 +101,8 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 
     HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Space Invaders");
 
-    CGame& rGame = CGame::GetInstance();
-
-    if (!rGame.Initialise(_hInstance, hwnd, kiWidth, kiHeight))
+	GetClientRect(hwnd, &_rect);
+    if (!rGame.Initialise(_hInstance, hwnd, _rect.right, _rect.bottom))
     {
         // Failed
         return (0);

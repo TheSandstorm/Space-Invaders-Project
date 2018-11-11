@@ -45,7 +45,7 @@ CBackGround::Initialise()
 {
 	//TODO: Needs an resource id for a background and a mask to function
 
-	VALIDATE(CEntity::Initialise(IDB_BackGround,IDB_BackGroundMask));
+	VALIDATE(CEntity::Initialise(IDB_BackGroundMask,IDB_BackGroundMask));
 
 	return (true);
 }

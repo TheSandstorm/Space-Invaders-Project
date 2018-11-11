@@ -89,7 +89,6 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 		pEnemy = new CEnemy();
 		if (i < 12)
 		{
-
 		}
 		//Sets second set
 		else if (i >= 12 && i < 36)
@@ -166,7 +165,7 @@ void
 CLevel::Process(float _fDeltaTick)
 {
 	m_fDeltaTick = _fDeltaTick;
-	
+
 	for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); i++)
 	{
 		m_vecpEnemyBullets[i]->Process(_fDeltaTick);
@@ -175,17 +174,10 @@ CLevel::Process(float _fDeltaTick)
 	m_fTime += _fDeltaTick;
 
 	m_pBullet = m_pPlayer->GetBullet();
-	
-	bBulletExists = false;
+
 	if (m_pBullet != nullptr)
 	{
 		bBulletExists = true;
-	}
-
-	if (bBulletExists && m_pBullet->GetY() <= 0)
-	{
-		m_pPlayer->DeleteBullet();
-		bBulletExists = false;
 	}
 
 	if (bBulletExists == true)
@@ -194,6 +186,20 @@ CLevel::Process(float _fDeltaTick)
 	}
 
 	m_pPlayer->Process(_fDeltaTick);
+
+	EnemyBulletWallCollision();
+	//Checks player bullet if it hits the top wall
+	if (bBulletExists == true && m_pBullet->GetY() <= -m_pBullet->GetHeight())
+	{
+		m_pPlayer->DeleteBullet();
+		m_pBullet = nullptr;
+		bBulletExists = false;
+	}
+	if (bBulletExists == true)
+	{
+
+	}
+
 	//Alien Shoot
 	if (s_iShootFrameBuffer <= 0 && m_fAlienShootMod != -1)
 	{
@@ -248,7 +254,28 @@ CLevel::Process(float _fDeltaTick)
 		}
 	}
 	m_fpsCounter->CountFramesPerSecond(_fDeltaTick);
-	
+}
+
+//Checks if the enemy bullet hit the bottom wall
+void CLevel::EnemyBulletWallCollision()
+{
+	float fBulletY;
+	float fBulletH;
+
+	for (size_t i = 0; i < m_vecpEnemyBullets.size(); i++)//Checks every bullet in the vector
+	{
+		fBulletH = m_vecpEnemyBullets.at(i)->GetHeight();
+		fBulletY = m_vecpEnemyBullets.at(i)->GetY();
+		if (fBulletY > (m_iHeight) + fBulletH)
+		{
+			CEnemyBullet* pBullet = m_vecpEnemyBullets.at(i);
+
+			m_vecpEnemyBullets.erase(m_vecpEnemyBullets.begin() + i);
+
+			delete pBullet;
+			pBullet = nullptr;
+		}
+	}
 }
 
 void CLevel::UpdateScoreText()
@@ -273,14 +300,11 @@ bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 		{
 			if ((m_vecEnemies.at(j) != nullptr) && (j % 12 == _iStack))
 			{
-
 				m_vecEnemies.at(j)->Shoot(&m_vecpEnemyBullets);
 				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, 520.0, m_fDeltaTick);
-
 				return true;
 			}
 		}
 	}
-	return false;
 	return false;
 }
