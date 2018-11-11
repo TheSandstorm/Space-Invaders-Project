@@ -1,0 +1,15 @@
+﻿  sprite.cpp
+  player.cpp
+  Main.cpp
+  level.cpp
+  game.cpp
+  entity.cpp
+  enemyBullet.cpp
+  enemy.cpp
+  clock.cpp
+d:\users\john.str8228\source\repos\space invaders project\space invaders project\clock.cpp(47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  bullet.cpp
+  Background.cpp
+  backbuffer.cpp
+  Generating Code...
+  Space Invaders Project.vcxproj -> D:\Users\john.str8228\source\repos\Space Invaders Project\Debug\Space Invaders Project.exe
