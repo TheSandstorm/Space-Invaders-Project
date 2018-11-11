@@ -19,7 +19,8 @@
 #include "BackBuffer.h"
 #include "utils.h"
 #include "sprite.h"
-
+#include "Background.h"
+#include "level.h"
 
 // This Include
 #include "Game.h"
@@ -37,7 +38,7 @@ CGame::CGame()
 , m_hMainWindow(0)
 , m_pBackBuffer(0)
 {
-
+	m_pBackground = nullptr;
 }
 
 CGame::~CGame()
@@ -47,6 +48,12 @@ CGame::~CGame()
 
     delete m_pClock;
     m_pClock = 0;
+
+	delete m_pBackground;
+	m_pBackground = 0;
+
+	delete m_pLevel;
+	m_pLevel = 0;
 }
 
 bool
@@ -62,6 +69,16 @@ CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
     m_pBackBuffer = new CBackBuffer();
     VALIDATE(m_pBackBuffer->Initialise(_hWnd, _iWidth, _iHeight));
 	//Needed to create the level obj
+
+	if (m_pBackground == nullptr)
+	{
+		m_pBackground = new CBackGround();
+		VALIDATE(m_pBackground->Initialise());
+		//Set the background position to start from {0,0}
+		m_pBackground->SetX((float)m_iWidth / 2);
+		m_pBackground->SetY((float)m_iHeight / 2);
+	}
+
 	m_pLevel = new CLevel();
 	VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
 
@@ -75,8 +92,8 @@ CGame::Draw()
 {
     m_pBackBuffer->Clear();
 
+	m_pBackground->Draw();
 // Do all the game’s drawing here...
-
 
     m_pBackBuffer->Present();
 }

@@ -17,6 +17,7 @@
 
 // Library Includes
 #include <windows.h>
+#include <vector>
 
 // Local Includes
 #include "clock.h"
@@ -27,6 +28,8 @@
 
 // Prototypes
 class CBackBuffer;
+class CLevel;
+class CBackGround;
 
 class CGame
 {
@@ -44,6 +47,7 @@ public:
     CBackBuffer* GetBackBuffer();
     HINSTANCE GetAppInstance();
     HWND GetWindow();
+	CLevel* GetLevel;
 
     // Singleton Methods
     static CGame& GetInstance();
@@ -62,6 +66,10 @@ public:
 protected:
     CClock* m_pClock;
 
+	
+
+	CLevel* m_pLevel;
+
     CBackBuffer* m_pBackBuffer;
 
     //Application data
@@ -70,9 +78,12 @@ protected:
 
     // Singleton Instance
     static CGame* s_pGame;
+	CBackGround* m_pBackground;
 
 private:
 
+	int m_iWidth;
+	int m_iHeight;
 };
 
 #endif    // __GAME_H__

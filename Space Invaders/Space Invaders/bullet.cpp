@@ -3,7 +3,6 @@
 // Local Includes
 #include "resource.h"
 #include "utils.h"
-#include "sprite.h"
 
 // This Includes
 #include "bullet.h"

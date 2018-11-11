@@ -17,7 +17,9 @@
 
 // Library Includes
 #include <strstream>
-
+#include <Windows.h>
+#include <sstream>
+#include <string>
 // Local Includes
 
 // Types
