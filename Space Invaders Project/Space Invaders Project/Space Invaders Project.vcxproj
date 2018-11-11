@@ -142,6 +142,7 @@
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="framerate.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemyBullet.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="framerate.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="player.h" />

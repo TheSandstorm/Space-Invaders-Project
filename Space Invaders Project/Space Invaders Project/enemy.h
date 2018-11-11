@@ -13,6 +13,8 @@
 //
 
 #pragma once
+#if !defined(__ENEMY_H__)
+#define __ENEMY_H__
 
 // Library Includes
 #include <vector>
@@ -21,7 +23,7 @@
 #include "clock.h"
 #include "bullet.h"
 #include "enemyBullet.h"
-#include "entity.h"
+
 
 class CEnemy : public CEntity 
 {
@@ -58,9 +60,6 @@ public:
 	bool m_bWallHit;
 	int m_iSprite;
 	int m_iSpriteMask;
-	void MoveDown(float _fDeltaTick);
-	CEnemyBullet* GetBullet();
-	void SetBullet(CEnemyBullet*);
 
 protected:
 	bool m_bHit;
@@ -72,3 +71,5 @@ private:
 	float m_fTime;
 	CEnemyBullet * m_pEnemyBullet = nullptr;
 };
+
+#endif    // __ENEMY_H__

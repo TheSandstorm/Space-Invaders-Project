@@ -14,7 +14,7 @@
 //#include "lifecount.h" // if we get time
 #include "utils.h"
 #include "backbuffer.h"
-//#include "framecounter.h"
+#include "framerate.h"
 
 
 // This Include
@@ -39,7 +39,9 @@ CLevel::CLevel()
 	bBulletExists = false;
 	m_fSpeedModifier = 1.0f;
 	m_fAlienShootMod = 500;
+	m_iScore = 0;
 
+	m_fpsCounter = nullptr;
 	m_pPlayer = nullptr;
 }
 
@@ -47,6 +49,9 @@ CLevel::~CLevel()
 {
 	delete m_pPlayer;
 	m_pPlayer = 0;
+
+	delete m_fpsCounter;
+	m_fpsCounter = 0;
 }
 
 bool
@@ -115,6 +120,14 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 		}
 		m_vecEnemies.push_back(pEnemy);
 	}
+
+	if (m_fpsCounter == nullptr)
+	{
+		m_fpsCounter = new CFPSCounter();
+		VALIDATE(m_fpsCounter->Initialise());
+		UpdateScoreText();
+	}
+
 	//FP initialisation
 	return (true);
 }
@@ -136,9 +149,17 @@ CLevel::Draw()
 	{
 		m_pBullet->Draw();
 	}
+
+	for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); i++)
+	{
+		if (m_vecpEnemyBullets.empty() == false)
+		{
+			m_vecpEnemyBullets[i]->Draw();
+		}
+	}
 	//Draw screen statistics for debugging
 	//ScreenStats();
-
+	DrawFPS();
 }
 
 void
@@ -146,19 +167,34 @@ CLevel::Process(float _fDeltaTick)
 {
 	m_fDeltaTick = _fDeltaTick;
 	
+	for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); i++)
+	{
+		m_vecpEnemyBullets[i]->Process(_fDeltaTick);
+	}
+
 	m_fTime += _fDeltaTick;
 
 	m_pBullet = m_pPlayer->GetBullet();
-
+	
+	bBulletExists = false;
 	if (m_pBullet != nullptr)
 	{
 		bBulletExists = true;
+	}
+
+	if (bBulletExists && m_pBullet->GetY() <= 0)
+	{
+		m_pPlayer->DeleteBullet();
+		bBulletExists = false;
 	}
 
 	if (bBulletExists == true)
 	{
 		m_pBullet->Process(_fDeltaTick);
 	}
+
+	m_pPlayer->Process(_fDeltaTick);
+	//Alien Shoot
 	if (s_iShootFrameBuffer <= 0 && m_fAlienShootMod != -1)
 	{
 		s_iShootFrameBuffer = rand() % (m_fAlienShootMod);
@@ -211,11 +247,40 @@ CLevel::Process(float _fDeltaTick)
 
 		}
 	}
-	m_pPlayer->Process(_fDeltaTick);
+	m_fpsCounter->CountFramesPerSecond(_fDeltaTick);
+	
+}
+
+void CLevel::UpdateScoreText()
+{
+	m_strScore = "Score: ";
+	m_strScore += ToString(m_iScore);
+}
+
+void CLevel::DrawFPS()
+{
+	HDC hdc = CGame::GetInstance().GetBackBuffer()->GetBFDC();
+
+	m_fpsCounter->DrawFPSText(hdc, m_iWidth, m_iHeight);
+
 }
 
 bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 {
-	for()
+	if ((m_vecbAlienColumns.at(_iStack) == true))
+	{
+		for (int j = static_cast<int>(m_vecEnemies.size() - 1); j >= 0; --j)
+		{
+			if ((m_vecEnemies.at(j) != nullptr) && (j % 12 == _iStack))
+			{
+
+				m_vecEnemies.at(j)->Shoot(&m_vecpEnemyBullets);
+				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, 520.0, m_fDeltaTick);
+
+				return true;
+			}
+		}
+	}
+	return false;
 	return false;
 }

@@ -14,24 +14,47 @@
 
 #pragma once
 
-// Local includes
-#include "entity.h"
+#if !defined(__ENEMYBULLET_H__)
+#define __ENEMYBULLET_H__
 
-class CEnemyBullet
+// Library Includes
+
+// Local Includes
+#include "bullet.h"
+
+// Types
+
+// Constants
+
+// Prototypes
+class CSprite;
+class CSprite;
+
+class CEnemyBullet : public CBullet
 {
 public:
 	// Constructors and destructors
-	CEnemyBullet(float xPos, float yPos, float speed);
+	CEnemyBullet();
 	~CEnemyBullet();
-
-	// Variables
-	float m_fX;
-	float m_fY;
-	float m_fSpeed;
-	bool m_bHit;
-
 	// Functions
-	void Draw();
-	void Move();
-	void Hit();
+	virtual bool Initialise(float _fPosX, float _fPosY, float _fVelocityY, float _fDeltaTick);
+	virtual void Draw();
+	virtual void Process(float _fDeltaTick);
+	float GetSpeedY() const;
+	void SetSpeedY(float _fY);
+
+	float GetRadius() const;
+protected:
+
+private:
+	CEnemyBullet(const CEnemyBullet& _kr);
+	CEnemyBullet& operator= (const CEnemyBullet& _kr);
+public:
+
+protected:
+	float m_fSpeed;
+private:
+
 };
+
+#endif

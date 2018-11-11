@@ -12,8 +12,21 @@
 // Mail			: your.name@mediadesign.school.nz
 //
 
-// Local includes
+// Library Includes
+#include <vector>
+// Local Includes
+#include "resource.h"
+#include "utils.h"
+
+// This Include
 #include "enemy.h"
+#include "EnemyBullet.h"
+
+// Static Variables
+
+// Static Function Prototypes
+
+// Implementation
 
 // Constructor
 CEnemy::CEnemy()
@@ -29,6 +42,8 @@ CEnemy::CEnemy()
 // Destructor
 CEnemy::~CEnemy()
 {
+	delete m_pSprite;
+	m_pSprite = 0;
 }
 
 bool CEnemy::Initialise()
@@ -62,17 +77,17 @@ void CEnemy::Process(float _fdeltatime)
 
 void CEnemy::Shoot(std::vector<CEnemyBullet*>* _vecEnemyBullets)
 {
-	m_pEnemyBullet = new CEnemyBullet(m_fX, m_fY, 1.0f);
-//	m_pEnemyBullet->Initialise(m_fX, m_fY - 15, m_iBulletSpeed);
+	_vecEnemyBullets->push_back(new CEnemyBullet());
 }
 
 void CEnemy::SetHit(bool _b)
 {
+	m_bHit = _b;
 }
 
 bool CEnemy::Ishit() const
 {
-	return false;
+	return (m_bHit);
 }
 
 void CEnemy::SetSprite(int _iSprite)
@@ -87,15 +102,17 @@ void CEnemy::SetSpriteMask(int _iSpriteMask)
 
 int CEnemy::GetPoints()
 {
-	return 0;
+	return m_iPoints;
 }
 
 void CEnemy::SetPoints(int _iPoints)
 {
+	m_iPoints = _iPoints;
 }
 
 void CEnemy::SetSpeed(float _fSpeed)
 {
+	m_fSpeed = _fSpeed;
 }
 
 void CEnemy::Move(float _fDeltaTick)
