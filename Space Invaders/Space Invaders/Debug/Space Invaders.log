@@ -1,16 +1,12 @@
-﻿  sprite.cpp
-  player.cpp
+﻿  player.cpp
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(49): error C2143: syntax error: missing ')' before ','
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(49): error C2660: 'CEntity::Initialise': function does not take 0 arguments
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(49): error C2059: syntax error: ')'
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(51): error C2660: 'CSprite::SetDestSizeW': function does not take 0 arguments
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\player.cpp(52): error C2660: 'CSprite::SetDestSizeH': function does not take 0 arguments
-  level.cpp
-  game.cpp
   bullet.cpp
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\bullet.cpp(18): error C2065: 'IDB_BULLETMASK': undeclared identifier
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\bullet.cpp(20): error C2065: 'IDB_BULLETS': undeclared identifier
-  Main.cpp
   Background.cpp
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\background.cpp(48): error C2143: syntax error: missing ')' before ','
 c:\users\john strange\documents\github\space-invaders-project\space invaders\space invaders\background.cpp(48): error C2660: 'CEntity::Initialise': function does not take 0 arguments

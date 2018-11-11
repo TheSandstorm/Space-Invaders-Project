@@ -6,10 +6,10 @@
 //
 // (c) 2018 Media Design School
 //
-// File Name	: 
-// Description	: 
-// Author		: Your Name
-// Mail			: your.name@mediadesign.school.nz
+// File Name	: backbuffer.cpp
+// Description	: Where the canvas for the image is made
+// Author		: John Strange , Joshua O'Connor
+// Mail			: John.str8228@mediadesign.school.nz , Josh.con****@mediadesign.school.nz
 //
 
 // Library Includes
