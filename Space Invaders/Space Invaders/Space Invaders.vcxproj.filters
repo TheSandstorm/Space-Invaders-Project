@@ -138,41 +138,5 @@
     <Image Include="saucerMask.bmp">
       <Filter>Resource Files\Bitmaps</Filter>
     </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\base.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\baseMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damage.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damageMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetop.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetopMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invaders.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invadersMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\player.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\playerMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucer.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucerMask.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>
