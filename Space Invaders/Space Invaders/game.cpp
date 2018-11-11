@@ -61,7 +61,7 @@ CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
 
     m_pBackBuffer = new CBackBuffer();
     VALIDATE(m_pBackBuffer->Initialise(_hWnd, _iWidth, _iHeight));
-
+	//Needed to create the level obj
 	m_pLevel = new CLevel();
 	VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
 

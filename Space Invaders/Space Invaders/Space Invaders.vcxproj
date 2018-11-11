@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="backbuffer.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="clock.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="entity.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="backbuffer.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="clock.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="entity.h" />
