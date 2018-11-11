@@ -21,6 +21,7 @@
 #include "clock.h"
 #include "bullet.h"
 #include "enemyBullet.h"
+#include "entity.h"
 
 class CEnemy : public CEntity 
 {
