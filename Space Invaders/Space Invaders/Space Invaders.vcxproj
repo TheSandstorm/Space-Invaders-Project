@@ -139,7 +139,53 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="backbuffer.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="clock.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyBullet.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="level.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="backbuffer.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="bullet.h" />
+    <ClInclude Include="clock.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyBullet.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="level.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="sprite.h" />
+    <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Sprite\BackGround.bmp" />
+    <Image Include="Sprite\BackGroundMask.bmp" />
+    <Image Include="Sprite\Enemy Bullet Mask.bmp" />
+    <Image Include="Sprite\Enemy Bullet.bmp" />
+    <Image Include="Sprite\Invader 1 mask.bmp" />
+    <Image Include="Sprite\Invader 1.bmp" />
+    <Image Include="Sprite\Invader 2 Mask.bmp" />
+    <Image Include="Sprite\Invader 2.bmp" />
+    <Image Include="Sprite\Invader 3 Mask.bmp" />
+    <Image Include="Sprite\Invader 3.bmp" />
+    <Image Include="Sprite\mothership.bmp" />
+    <Image Include="Sprite\mothershipMask.bmp" />
+    <Image Include="Sprite\Player Bullet.bmp" />
+    <Image Include="Sprite\player.bmp" />
+    <Image Include="Sprite\playerMask.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
