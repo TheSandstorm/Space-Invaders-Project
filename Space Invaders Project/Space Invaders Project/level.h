@@ -56,6 +56,7 @@ protected:
 
 	std::vector<CEnemy*> m_vecEnemies;
 	std::vector<bool> m_vecbAlienColumns = { true , true ,true, true, true, true, true, true, true, true, true, true };
+	std::vector<CEnemyBullet> m_vecpEnemyBullets;
 
 	float m_fDeltaTick;
 private:

@@ -159,6 +159,19 @@ CLevel::Process(float _fDeltaTick)
 	{
 		m_pBullet->Process(_fDeltaTick);
 	}
+	if (s_iShootFrameBuffer <= 0 && m_fAlienShootMod != -1)
+	{
+		s_iShootFrameBuffer = rand() % (m_fAlienShootMod);
+		if (AlienShoot((rand() % 12), _fDeltaTick) == false) {
+			s_iShootFrameBuffer = 1;
+		}
+	}
+	else if (m_fAlienShootMod == -1)
+	{
+		s_iShootFrameBuffer = 1;
+	}
+
+	--s_iShootFrameBuffer;
 	bool hitwall = false;
 	for (size_t j = 0; j < m_vecEnemies.size(); j++)
 	{
@@ -199,4 +212,10 @@ CLevel::Process(float _fDeltaTick)
 		}
 	}
 	m_pPlayer->Process(_fDeltaTick);
+}
+
+bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
+{
+	for()
+	return false;
 }
