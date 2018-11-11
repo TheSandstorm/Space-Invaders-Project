@@ -168,6 +168,20 @@
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\base.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\baseMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damage.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damageMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetop.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\damagetopMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invaders.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\invadersMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\player.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\playerMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucer.bmp" />
+    <Image Include="..\..\..\..\..\..\Users\Joshua\Desktop\space-invaders-master\saucerMask.bmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
