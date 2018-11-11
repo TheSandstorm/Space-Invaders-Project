@@ -142,17 +142,23 @@
     <ClCompile Include="backbuffer.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="clock.cpp" />
+    <ClCompile Include="enemy.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="level.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backbuffer.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="clock.h" />
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="level.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="utils.h" />

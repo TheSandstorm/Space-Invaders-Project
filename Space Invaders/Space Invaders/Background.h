@@ -21,7 +21,6 @@
 
 // Local Includes
 #include "entity.h"
-#include "EEnums.h"
 
 // Types
 
@@ -56,7 +55,7 @@ protected:
 
 
 private:
-
+	//CSprite* m_pSprite;
 };
 
-#endif    // __BACKGROUND_H__
+#endif

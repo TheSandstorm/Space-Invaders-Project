@@ -36,5 +36,29 @@ std::string ToString(const T& _value)
     return (theStream.str());
 }
 
+inline std::string ReadFromEditBox(HWND _hDlg, int _iResourceID)
+{
+	wchar_t _pcValue[10];
+	//TCHAR buff[1024];
+
+	ZeroMemory(_pcValue, 10);
+	GetDlgItemText(_hDlg, _iResourceID, _pcValue, 10);
+
+	std::wstring ws(_pcValue);
+
+	if (_pcValue[0] == 0)
+	{
+		return "";
+	}
+	else
+	{
+		std::wstring ws(_pcValue);
+		std::string str(ws.begin(), ws.end());
+
+		return str;
+	}
+}
+
+
 #endif    // __UTILS_H__
 
