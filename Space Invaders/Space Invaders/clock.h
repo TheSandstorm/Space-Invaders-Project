@@ -37,6 +37,8 @@ public:
 
     float GetDeltaTick();
 
+	float GetCurTime();
+
 protected:
 
 private:
@@ -51,6 +53,8 @@ protected:
     float m_fDeltaTime;
     float m_fLastTime;
     float m_fCurrentTime;
+	float m_SecondsPerCount;
+	int m_iFrameCount = 0;
 
 private:
 

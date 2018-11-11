@@ -93,10 +93,10 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
     MSG msg;
     ZeroMemory(&msg, sizeof(MSG));
 
-    const int kiWidth = 400;
-    const int kiHeight = 400;
+	const int kiWidth = 960;
+	const int kiHeight = 720;
 
-    HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"BSENGG Framework");
+    HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Space Invaders");
 
     CGame& rGame = CGame::GetInstance();
 

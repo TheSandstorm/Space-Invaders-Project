@@ -62,7 +62,10 @@ CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
     m_pBackBuffer = new CBackBuffer();
     VALIDATE(m_pBackBuffer->Initialise(_hWnd, _iWidth, _iHeight));
 
-	ShowCursor(false);
+	m_pBackground = new CBackGround();
+	VALIDATE(m_pBackground->Initialise());
+
+	ShowCursor(true);
 
     return (true);
 }

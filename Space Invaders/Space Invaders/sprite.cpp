@@ -71,7 +71,16 @@ CSprite::Initialise(int _iSpriteResourceID, int _iMaskResourceID)
 
     return (true);
 }
+//Used for deleting the sprite after destuction
+bool CSprite::Deinitialise()
+{
 
+	DeleteObject(m_hSprite);
+	DeleteObject(m_hMask);
+
+	return (true);
+
+}
 void
 CSprite::Draw()
 {
@@ -81,17 +90,25 @@ CSprite::Draw()
     int iX = m_iX - (iW / 2);
     int iY = m_iY - (iH / 2);
 
-    CBackBuffer* pBackBuffer = CGame::GetInstance().GetBackBuffer();
+	if (m_iDestSizeW == 0 && m_iDestSizeH == 0)
+	{
+		m_iDestSizeW = iW;
+		m_iDestSizeH = iH;
+	}
 
-    HGDIOBJ hOldObj = SelectObject(s_hSharedSpriteDC, m_hMask);
+	CBackBuffer* pBackBuffer = CGame::GetInstance().GetBackBuffer();
 
-    BitBlt(pBackBuffer->GetBFDC(), iX, iY, iW, iH, s_hSharedSpriteDC, 0, 0, SRCAND);
+	HGDIOBJ hOldObj = SelectObject(s_hSharedSpriteDC, m_hMask);
+	
+	//BitBlt(pBackBuffer->GetBFDC(), iX, iY, iW, iH, s_hSharedSpriteDC, 0, 0, SRCAND); Old draw function
+	//Improved draw function
+	StretchBlt(pBackBuffer->GetBFDC(), iX, iY, m_iDestSizeW, m_iDestSizeH, s_hSharedSpriteDC, 0, 0, iW, iH, SRCAND);
 
-    SelectObject(s_hSharedSpriteDC, m_hSprite);
+	SelectObject(s_hSharedSpriteDC, m_hSprite);
+	StretchBlt(pBackBuffer->GetBFDC(), iX, iY, m_iDestSizeW, m_iDestSizeH, s_hSharedSpriteDC, 0, 0, iW, iH, SRCPAINT);
 
-    BitBlt(pBackBuffer->GetBFDC(), iX, iY, iW, iH, s_hSharedSpriteDC, 0, 0, SRCPAINT);
 
-    SelectObject(s_hSharedSpriteDC, hOldObj);
+	SelectObject(s_hSharedSpriteDC, hOldObj);
 }
 
 void
@@ -103,49 +120,70 @@ CSprite::Process(float _fDeltaTick)
 int
 CSprite::GetWidth() const
 {
-    return (m_bitmapSprite.bmWidth);
+	return (m_bitmapSprite.bmWidth);
+}
+
+void
+CSprite::SetWidth(int _iWidth)
+{
+	m_bitmapSprite.bmWidth = _iWidth;
+}
+
+void CSprite::SetHeight(int _iHeight)
+{
+	m_bitmapSprite.bmHeight = _iHeight;
 }
 
 int
 CSprite::GetHeight() const
 {
-    return (m_bitmapSprite.bmHeight);
+	return (m_bitmapSprite.bmHeight);
 }
 
-int 
+int
 CSprite::GetX() const
 {
-    return (m_iX);
+	return (m_iX);
 }
 
-int 
+int
 CSprite::GetY() const
 {
-    return (m_iY);
+	return (m_iY);
 }
 
-void 
+void
 CSprite::SetX(int _i)
 {
-    m_iX = _i;
+	m_iX = _i;
 }
 
-void 
+void
 CSprite::SetY(int _i)
 {
-    m_iY = _i;
+	m_iY = _i;
 }
 
-void 
+void
 CSprite::TranslateRelative(int _iX, int _iY)
 {
-    m_iX += _iX;
-    m_iY += _iY;
+	m_iX += _iX;
+	m_iY += _iY;
 }
 
-void 
+void
 CSprite::TranslateAbsolute(int _iX, int _iY)
 {
-    m_iX = _iX;
-    m_iY = _iY;
+	m_iX = _iX;
+	m_iY = _iY;
+}
+
+void CSprite::SetDestSizeH(int _iSizeH)
+{
+	m_iDestSizeH = _iSizeH;
+}
+
+void CSprite::SetDestSizeW(int _iSizeW)
+{
+	m_iDestSizeW = _iSizeW;
 }

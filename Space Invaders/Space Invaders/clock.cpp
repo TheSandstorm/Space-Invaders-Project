@@ -12,6 +12,7 @@
 // Mail			: your.name@mediadesign.school.nz
 //
 
+
 // Library Includes
 #include <windows.h>
 
@@ -25,10 +26,10 @@
 // Implementation
 
 CClock::CClock()
-: m_fTimeElapsed(0.0f)
-, m_fDeltaTime(0.0f)
-, m_fLastTime(0.0f)
-, m_fCurrentTime(0.0f)
+	: m_fTimeElapsed(0.0)
+	, m_fDeltaTime(0.0)
+	, m_fLastTime(0.0)
+	, m_fCurrentTime(0.0)
 {
 
 }
@@ -41,29 +42,51 @@ CClock::~CClock()
 bool
 CClock::Initialise()
 {
-    return (true);
+	__int64 _TimerFrequency, _currTime;
+	QueryPerformanceFrequency((LARGE_INTEGER*)&_TimerFrequency);
+	m_SecondsPerCount = 1.0 / static_cast<float>(_TimerFrequency);
+
+	QueryPerformanceCounter((LARGE_INTEGER*)&_currTime);
+	m_fCurrentTime = static_cast<float>(_currTime);
+	m_fLastTime = static_cast<float>(_currTime);
+
+	return (true);
 }
 
 void
 CClock::Process()
 {
-    m_fLastTime = m_fCurrentTime;
+	//Get the time this frame.
 
-    m_fCurrentTime = static_cast<float>(timeGetTime());
+	__int64 currTime;
 
-    if (m_fLastTime == 0.0f)
-    {
-        m_fLastTime = m_fCurrentTime;
-    }
+	QueryPerformanceCounter((LARGE_INTEGER*)&currTime);
 
-    m_fDeltaTime = m_fCurrentTime - m_fLastTime;
+	m_fCurrentTime = static_cast<float>(currTime);
 
-    m_fTimeElapsed += m_fDeltaTime;
+	//Time difference between this frame and the previous frame
+	m_fDeltaTime = (m_fCurrentTime - m_fLastTime)*m_SecondsPerCount;
+
+	//Prepare for the next frame
+	m_fLastTime = m_fCurrentTime;
+
+	//Force non-negative
+	if (m_fDeltaTime < 0.0)
+	{
+		m_fDeltaTime = 0.0;
+	}
+
+	m_fTimeElapsed += m_fDeltaTime;
 }
+
 
 float
 CClock::GetDeltaTick()
 {
-    return (m_fDeltaTime / 1000.0f);
+	return static_cast<float>(m_fDeltaTime);
 }
 
+float CClock::GetCurTime()
+{
+	return m_fCurrentTime;
+}

@@ -33,12 +33,16 @@ public:
     ~CSprite();
 
     bool Initialise(int _iResourceID, int _iMaskResourceID);
+	bool Deinitialise();
 
-    void Draw();
+	void Draw();
     void Process(float _fDeltaTick);
 
     int GetWidth() const;
+	void SetWidth(int _iWidth);
+
     int GetHeight() const;
+	void SetHeight(int _iHeight);
 
     int GetX() const;
     int GetY() const;
@@ -47,6 +51,9 @@ public:
 
     void TranslateRelative(int _iX, int _iY);
     void TranslateAbsolute(int _iX, int _iY);
+	//Set size for destruction
+	void SetDestSizeH(int _iSizeH);
+	void SetDestSizeW(int _iSizeW);
 
 protected:
 
@@ -72,6 +79,8 @@ protected:
     static int s_iRefCount;
 
 private:
+	int m_iDestSizeH = 0;
+	int m_iDestSizeW = 0;
 
 };
 
