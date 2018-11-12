@@ -50,7 +50,8 @@ protected:
 	void UpdateHealthText();
 	void DrawHealth();
 	void DrawFPS();
-	
+	void Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyFirerate, float _fPlayerBulletSpeed);
+
 private:
 	CLevel(const CLevel& _kr);
 	CLevel& operator= (const CLevel& _kr);

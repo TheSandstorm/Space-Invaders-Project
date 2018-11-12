@@ -509,3 +509,23 @@ bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 	}
 	return false;
 }
+
+void CLevel::Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyFirerate, float _fPlayerBulletSpeed)
+{
+	if (_fEnemySpeed != 0)
+	{
+		m_fSpeedModifier = 1 / _fEnemySpeed;
+	}
+	if (_fEnemyBulletSpeed != 0)
+	{
+		m_fAlienShootMod = _fEnemySpeed;
+	}
+	if (_fEnemyFirerate != 0)
+	{
+		//m_fSpeedModifier = _fEnemySpeed;
+	}
+	if (_fPlayerBulletSpeed != 0)
+	{
+		//m_fSpeedModifier = _fEnemySpeed;
+	}
+}

@@ -21,6 +21,7 @@
 #include "Clock.h"
 #include "utils.h"
 #include "resource.h"
+#include "level.h"
 
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"
 
@@ -38,16 +39,19 @@ LRESULT CALLBACK WindowProc(HWND _hWnd,
 		{
 			switch (_wParam)
 			{
-			case 0x44:
-			{
-				ShowWindow(g_hDlgDebug, SW_SHOWNORMAL);
-				break;
+				case VK_ESCAPE:
+				{
+					ShowWindow(g_hDlgDebug, SW_SHOWNORMAL);
+					break;
+				}
+			
+				default:
+					break;
 			}
-			default:
-				break;
-			}
+			
 			return (0);
 		}
+
 	break;
 		case WM_DESTROY:
         {
@@ -70,29 +74,62 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 {
 	switch (_msg)
 	{
-	case WM_COMMAND:
-	{
-		switch (LOWORD(_wparam))
+		case WM_COMMAND:
 		{
-		case IDOK:
-		{
+			switch (LOWORD(_wparam))
+			{
+				// Change enemy speed
+				case IDC_EDIT1:
+				{
+					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT1);
+
+					rGame->GetInstance()->GetLevel()->Modify(newValue, 0, 0, 0);
+					break;
+				}
+
+				// Change enemy bullet speed
+				case IDC_EDIT2:
+				{
+					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT2);
+
+					rGame->GetInstance()->GetLevel()->Modify(0, newValue, 0, 0);
+					break;
+				}
+
+				// Change enemy fire rate
+				case IDC_EDIT3:
+				{
+					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT3);
+
+					rGame->GetInstance()->GetLevel()->Modify(0, 0, newValue, 0);
+					break;
+				}
+
+				// Change player bullet speed
+				case IDC_EDIT4:
+				{
+					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT4);
+
+					rGame->GetInstance()->GetLevel()->Modify(0, 0, 0, newValue);
+					break;
+				}
+
+				default:
+					break;
+			}
+
 			break;
 		}
-
+		
+		case WM_CLOSE:
+		{
+			ShowWindow(_hwnd, SW_HIDE);
+			return TRUE;
+			break;
+		}
+		
 		default:
 			break;
-		}
-
-		break;
-	}
-	case WM_CLOSE:
-	{
-		ShowWindow(_hwnd, SW_HIDE);
-		return TRUE;
-		break;
-	}
-	default:
-		break;
 	}
 
 	return FALSE;
@@ -143,8 +180,6 @@ CreateAndRegisterWindow(HINSTANCE _hInstance, int _iWidth, int _iHeight, LPCWSTR
     return (hwnd);
 }
 
-
-
 int WINAPI
 WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _iCmdshow)
 {
@@ -178,8 +213,6 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
         }
     }
 	
-	
-
     CGame::DestroyInstance();
 
     return (static_cast<int>(msg.wParam));
