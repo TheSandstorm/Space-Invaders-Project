@@ -197,7 +197,7 @@ CLevel::Process(float _fDeltaTick)
 	}
 	if (bBulletExists == true)
 	{
-
+		EnemyBulletWallCollision();
 	}
 
 	//Alien Shoot
