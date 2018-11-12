@@ -168,6 +168,23 @@
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\BackGround.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\BackGroundMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Enemy Bullet Mask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Enemy Bullet.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 1 mask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 1.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 2 Mask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 2.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 3 Mask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 3.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\mothership.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\mothershipMask.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Player Bullet.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\player.bmp" />
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\playerMask.bmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

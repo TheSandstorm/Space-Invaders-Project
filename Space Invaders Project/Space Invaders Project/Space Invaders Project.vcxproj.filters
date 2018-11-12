@@ -104,4 +104,51 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Enemy Bullet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 1 mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 2 Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 3 Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Invader 3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\mothership.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\mothershipMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Player Bullet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\player.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\playerMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\Enemy Bullet Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\BackGround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\BackGroundMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

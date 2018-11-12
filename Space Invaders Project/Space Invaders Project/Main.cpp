@@ -20,16 +20,23 @@
 #include "Game.h"
 #include "Clock.h"
 #include "utils.h"
+#include "resource.h"
 
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"
 
 CGame& rGame = CGame::GetInstance();
+HWND g_hDlg;
 
 LRESULT CALLBACK
 WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 {
     switch (_uiMsg)
     {
+		case VK_LCONTROL:
+		{
+			ShowWindow(g_hDlg, SW_SHOWNORMAL);
+			break;
+		}
         case WM_DESTROY:
         {
             PostQuitMessage(0);
@@ -38,7 +45,8 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
         }
         break;
 
-        default:break;
+        default:
+			break;
     } 
 
     return (DefWindowProc(_hWnd, _uiMsg, _wParam, _lParam));
@@ -89,6 +97,36 @@ CreateAndRegisterWindow(HINSTANCE _hInstance, int _iWidth, int _iHeight, LPCWSTR
     return (hwnd);
 }
 
+BOOL CALLBACK DIALOG(HWND _hwnd,
+	UINT _msg,
+	WPARAM _wparam,
+	LPARAM _lparam)
+{
+	switch (_msg)
+	{
+		case WM_COMMAND:
+		{
+			switch (LOWORD(_wparam))
+			{
+				case IDOK:
+				{
+					break;
+				}
+
+				default:
+					break;
+			}
+
+			break;
+		}
+
+		default:
+			break;
+	}
+
+	return false;
+}
+
 int WINAPI
 WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _iCmdshow)
 {
@@ -120,6 +158,8 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
             rGame.ExecuteOneFrame();
         }
     }
+	
+	g_hDlg = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), hwnd, (DLGPROC)DIALOG);
 
     CGame::DestroyInstance();
 
