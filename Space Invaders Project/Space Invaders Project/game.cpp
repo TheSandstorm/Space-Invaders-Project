@@ -119,8 +119,6 @@ CGame::ExecuteOneFrame()
     Draw();
 
     m_pClock->Process();
-
-	Sleep(1);
 }
 
 CGame&
@@ -173,4 +171,10 @@ CGame::DrawFinalScore()
 	TextOutA(hdc, kiX - 130, kiY + 60, "Game Over!", 10);
 
 	TextOutA(hdc, kiX + 20, kiY + 60, _strScore.c_str(), static_cast<int>(_strScore.size()));
+}
+
+CLevel*
+CGame::GetLevel()
+{
+	return (m_pLevel);
 }

@@ -42,9 +42,12 @@ protected:
 	//Collision stuff goes here
 	void EnemyBulletWallCollision();
 	bool EnemyBulletCollision(float _fDeltatick);
+	bool BulletEnemyBulletCollision(float _fDeltaTick);
+	bool BulletPlayerCollision(float _fDeltaTick);
 
 	void UpdateScoreText();
 	void DrawScore();
+	void UpdateHealthText();
 	void DrawHealth();
 	void DrawFPS();
 	
@@ -54,9 +57,8 @@ private:
 	
 	//Member Variables
 public:
-	CBullet * GetPlayerBullet();
-	CPlayer* GetPlayer();
-
+	bool GetLoseState();
+	void SetLoseState(bool _bLoseState);
 protected:
 	CBullet * m_pBullet;
 	CPlayer* m_pPlayer;
@@ -73,13 +75,15 @@ protected:
 
 	int m_iEnemyRemaning;
 
-	std::string m_strScore;
+	std::wstring m_strScore;
+	std::wstring m_strHealth;
 private:
 	bool bBulletExists;
 	bool AlienShoot(int _iStack, float _fDeltaTick);
 	float m_fSpeedModifier;
 	float m_fTime;
 	int m_iScore;
+	bool m_bLoseState;
 
 	//Debug values
 	int m_fAlienShootMod;

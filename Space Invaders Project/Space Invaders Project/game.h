@@ -48,7 +48,7 @@ public:
     HINSTANCE GetAppInstance();
     HWND GetWindow();
 	void DrawFinalScore();
-	CLevel* GetLevel;
+	CLevel * GetLevel();
 
     // Singleton Methods
     static CGame& GetInstance();

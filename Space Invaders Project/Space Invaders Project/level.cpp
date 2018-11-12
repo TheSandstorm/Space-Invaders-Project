@@ -160,8 +160,9 @@ void CLevel::Draw()
 	}
 	//Draw screen statistics for debugging
 	//ScreenStats();
-	DrawFPS();
 	DrawScore();
+	DrawFPS();
+	DrawHealth();
 }
 
 void
@@ -191,6 +192,7 @@ CLevel::Process(float _fDeltaTick)
 	m_pPlayer->Process(_fDeltaTick);
 
 	EnemyBulletWallCollision();
+	BulletPlayerCollision(_fDeltaTick);
 	//Checks player bullet if it hits the top wall
 	if (bBulletExists == true && m_pBullet->GetY() <= -m_pBullet->GetHeight())
 	{
@@ -202,6 +204,10 @@ CLevel::Process(float _fDeltaTick)
 	if (bBulletExists == true)
 	{
 		bBulletExists=EnemyBulletCollision(_fDeltaTick);
+	}
+	if (bBulletExists == true)
+	{
+		bBulletExists = BulletEnemyBulletCollision(_fDeltaTick);
 	}
 	
 
@@ -343,10 +349,104 @@ bool CLevel::EnemyBulletCollision(float _fDeltatick)
 	return true;
 }
 
+bool CLevel::BulletEnemyBulletCollision(float _fDeltaTick) {
+	for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); ++i) // cycles through all bullets in the vector
+	{
+		float fEnemyBulletR = m_vecpEnemyBullets[i]->GetRadius();
+
+		float fEnemyBulletX = m_vecpEnemyBullets[i]->GetX();
+		float fEnemyBulletY = m_vecpEnemyBullets[i]->GetY();
+
+		float fBulletX = m_pBullet->GetX();
+		float fBulletY = m_pBullet->GetY();
+
+		float fBulletR = m_pBullet->GetRadius();
+
+		if ((fEnemyBulletX + fEnemyBulletR > fBulletX - fBulletR / 2) &&
+			(fEnemyBulletX - fEnemyBulletR < fBulletX + fBulletR / 2) &&
+			(fEnemyBulletY + fEnemyBulletR > fBulletY - fBulletR / 2) &&
+			(fEnemyBulletY - fEnemyBulletR < fBulletY + fBulletR / 2))
+		{
+			//Hit the front side of the bullet...
+			m_vecpEnemyBullets[i]->SetY((fBulletY + fBulletR / 2.0f) + fEnemyBulletR);
+			m_vecpEnemyBullets[i]->SetSpeedY(m_vecpEnemyBullets[i]->GetSpeedY() * -1);
+
+			m_pBullet->SetY((fEnemyBulletX + fEnemyBulletR / 2.0f) + fBulletR);
+			m_pBullet->SetSpeedY(m_pBullet->GetSpeedY() * -1);
+
+			delete m_pBullet;
+
+			m_pBullet = 0;
+			m_pPlayer->SetBullet(nullptr);
+
+			CEnemyBullet* pBullet = m_vecpEnemyBullets.at(i);
+
+			m_vecpEnemyBullets.erase(m_vecpEnemyBullets.begin() + i);
+
+			delete pBullet;
+			pBullet = nullptr;
+
+
+			//reduce the player's health
+
+			return false;
+		}
+	}
+	return true;
+}
+
+bool CLevel::BulletPlayerCollision(float _fDeltaTick) {
+	for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); ++i)
+	{
+		if (m_vecpEnemyBullets[i] != nullptr && !m_pPlayer->IsHit())
+		{
+			float fBulletR = m_vecpEnemyBullets[i]->GetRadius();
+
+			float fBulletX = m_vecpEnemyBullets[i]->GetX();
+			float fBulletY = m_vecpEnemyBullets[i]->GetY();
+
+			float fPlayerX = m_pPlayer->GetX();
+			float fPlayerY = m_pPlayer->GetY();
+
+			float fPlayerH = m_pPlayer->GetHeight();
+			float fPlayerW = m_pPlayer->GetWidth();
+
+			if ((fBulletX + fBulletR > fPlayerX - fPlayerW / 2) &&
+				(fBulletX - fBulletR < fPlayerX + fPlayerW / 2) &&
+				(fBulletY + fBulletR > fPlayerY - fPlayerH / 2 + 18) && 
+				(fBulletY - fBulletR < fPlayerY + fPlayerH / 2))
+			{
+				//Hit the front side of the brick...
+				m_vecpEnemyBullets[i]->SetY((fPlayerY + fPlayerH / 2.0f) + fBulletR);
+				m_vecpEnemyBullets[i]->SetSpeedY(m_vecpEnemyBullets[i]->GetSpeedY() * -1);
+
+				CEnemyBullet* pBullet = m_vecpEnemyBullets.at(i);
+
+				m_vecpEnemyBullets.erase(m_vecpEnemyBullets.begin() + i);
+
+				delete pBullet;
+				pBullet = nullptr;
+
+				//reduce the player's health
+				m_pPlayer->LoseLife();
+				//check to see if the player lost
+				if (m_pPlayer->GetLives() == 0)
+				{
+					this->SetLoseState(true);
+				}
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void CLevel::UpdateScoreText()
 {
-	m_strScore = "Score: ";
-	m_strScore += ToString(m_iScore);
+	m_strScore = L"Score: ";
+	wchar_t wstrTemp[10];
+	_itow_s(static_cast< int >(m_iScore), wstrTemp, 10);
+	m_strScore += wstrTemp;
 }
 
 void CLevel::DrawScore()
@@ -354,14 +454,24 @@ void CLevel::DrawScore()
 	HDC hdc = CGame::GetInstance().GetBackBuffer()->GetBFDC();
 	const int kiX = 0;
 	const int kiY = m_iHeight - 14;
-	SetBkMode(hdc, TRANSPARENT);
 
-	TextOutA(hdc, kiX, kiY, m_strScore.c_str(), static_cast<int>(m_strScore.size()));
+	TextOut(hdc, kiX, kiY, m_strScore.c_str(), static_cast<int>(m_strScore.size()));
 }
 
+void CLevel::UpdateHealthText()
+{
+	m_strHealth = L"Health: ";
+	wchar_t wstrTemp[10];
+	_itow_s(static_cast<int>(m_pPlayer->GetLives()), wstrTemp, 10);
+	m_strHealth += wstrTemp;
+}
 void CLevel::DrawHealth()
 {
+	HDC hdc = CGame::GetInstance().GetBackBuffer()->GetBFDC();
+	const int kiX = 0;
+	const int kiY = m_iHeight - 40;
 
+	TextOut(hdc, kiX, kiY, m_strHealth.c_str(), static_cast<int>(m_strHealth.size()));
 }
 
 void CLevel::DrawFPS()
@@ -371,6 +481,17 @@ void CLevel::DrawFPS()
 	m_fpsCounter->DrawFPSText(hdc, m_iWidth, m_iHeight);
 
 }
+
+bool CLevel::GetLoseState()
+{
+	return m_bLoseState;
+}
+
+void CLevel::SetLoseState(bool _bLoseState)
+{
+	m_bLoseState = _bLoseState;
+}
+
 
 bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 {
