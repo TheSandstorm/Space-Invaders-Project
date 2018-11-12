@@ -27,23 +27,25 @@
 CGame& rGame = CGame::GetInstance();
 HWND g_hDlg;
 
-LRESULT CALLBACK
-WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
+LRESULT CALLBACK WindowProc(HWND _hWnd,
+	UINT _uiMsg,
+	WPARAM _wParam,
+	LPARAM _lParam)
 {
     switch (_uiMsg)
-    {
+	{
 		case VK_LCONTROL:
 		{
 			ShowWindow(g_hDlg, SW_SHOWNORMAL);
 			break;
 		}
-        case WM_DESTROY:
+		
+		case WM_DESTROY:
         {
             PostQuitMessage(0);
 
             return(0);
         }
-        break;
 
         default:
 			break;
