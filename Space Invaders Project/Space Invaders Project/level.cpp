@@ -89,18 +89,21 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 		pEnemy = new CEnemy();
 		if (i < 12)
 		{
+			pEnemy->SetPoints(30);
 		}
 		//Sets second set
 		else if (i >= 12 && i < 36)
 		{
 			iSprite = IDB_Enemy2;
 			iSpriteMask = IDB_Enemy2Mask;
+			pEnemy->SetPoints(20);
 		}
 		//Sets final set
 		else
 		{
 			iSprite = IDB_Enemy3;
 			iSpriteMask = IDB_Enemy3Mask;
+			pEnemy->SetPoints(10);
 		}
 		pEnemy->SetSprite(iSprite);
 		pEnemy->SetSpriteMask(iSpriteMask);
@@ -131,8 +134,7 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 	return (true);
 }
 
-void
-CLevel::Draw()
+void CLevel::Draw()
 {
 	for (unsigned int i = 0; i < m_vecEnemies.size(); ++i)
 	{
@@ -159,6 +161,7 @@ CLevel::Draw()
 	//Draw screen statistics for debugging
 	//ScreenStats();
 	DrawFPS();
+	DrawScore();
 }
 
 void
@@ -195,10 +198,12 @@ CLevel::Process(float _fDeltaTick)
 		m_pBullet = nullptr;
 		bBulletExists = false;
 	}
+
 	if (bBulletExists == true)
 	{
-		EnemyBulletWallCollision();
+		bBulletExists=EnemyBulletCollision(_fDeltaTick);
 	}
+	
 
 	//Alien Shoot
 	if (s_iShootFrameBuffer <= 0 && m_fAlienShootMod != -1)
@@ -256,6 +261,17 @@ CLevel::Process(float _fDeltaTick)
 	m_fpsCounter->CountFramesPerSecond(_fDeltaTick);
 }
 
+void CLevel::SetScore(int _i)
+{
+	m_iScore = _i;
+	UpdateScoreText();
+}
+
+int CLevel::GetScore()
+{
+	return m_iScore;
+}
+
 //Checks if the enemy bullet hit the bottom wall
 void CLevel::EnemyBulletWallCollision()
 {
@@ -278,10 +294,74 @@ void CLevel::EnemyBulletWallCollision()
 	}
 }
 
+bool CLevel::EnemyBulletCollision(float _fDeltatick)
+{
+	for (unsigned int i = 0; i < m_vecEnemies.size(); ++i)
+	{
+		if (m_vecEnemies[i] != nullptr && !m_vecEnemies[i]->IsHit())
+		{
+			float fBulletWidth = m_pBullet->GetRadius();
+			float fBulletHeight = m_pBullet->GetHeight() / 2;
+
+			float fBulletX = m_pBullet->GetX();
+			float fBulletY = m_pBullet->GetY();
+
+			float fEnemyX = m_vecEnemies[i]->GetX();
+			float fEnemyY = m_vecEnemies[i]->GetY();
+
+			float fEnemyH = m_vecEnemies[i]->GetHeight();
+			float fEnemyW = m_vecEnemies[i]->GetWidth();
+			if ((fBulletX + fBulletWidth > fEnemyX - fEnemyW / 2 ) &&
+				(fBulletX - fBulletWidth < fEnemyX + fEnemyW / 2) &&
+				(fBulletY + fBulletHeight > fEnemyY - fEnemyH / 2) &&
+				(fBulletY - fBulletHeight < fEnemyY + fEnemyH / 2 ))
+			{
+				//Hit's the front side of the ship
+				m_pBullet->SetY((fEnemyY + fEnemyH / 2.0f) + fBulletWidth);
+				m_pBullet->SetSpeedY(m_pBullet->GetSpeedY()*-1);
+
+				SetScore(m_vecEnemies[i]->GetPoints() + GetScore());
+				CEnemy* pEnemy = m_vecEnemies[i];
+
+				delete pEnemy;
+
+				m_vecEnemies[i] = nullptr;
+
+				m_pPlayer->DeleteBullet();
+
+				for (unsigned int j = 0; j < m_vecEnemies.size(); j++)
+				{
+					if (m_vecEnemies[j] != nullptr)
+					{
+						m_vecEnemies[j]->m_fSpeed *= 0.97f;
+					}
+				}
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void CLevel::UpdateScoreText()
 {
 	m_strScore = "Score: ";
 	m_strScore += ToString(m_iScore);
+}
+
+void CLevel::DrawScore()
+{
+	HDC hdc = CGame::GetInstance().GetBackBuffer()->GetBFDC();
+	const int kiX = 0;
+	const int kiY = m_iHeight - 14;
+	SetBkMode(hdc, TRANSPARENT);
+
+	TextOutA(hdc, kiX, kiY, m_strScore.c_str(), static_cast<int>(m_strScore.size()));
+}
+
+void CLevel::DrawHealth()
+{
+
 }
 
 void CLevel::DrawFPS()

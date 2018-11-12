@@ -39,7 +39,7 @@ public:
 	void Process(float _fdeltatime);
 	void Shoot(std::vector<CEnemyBullet*> *_vecEnemyBullets);
 	void SetHit(bool _b);
-	bool Ishit()const;
+	bool IsHit()const;
 
 	void SetSprite(int _iSprite);
 	void SetSpriteMask(int _iSpriteMask);

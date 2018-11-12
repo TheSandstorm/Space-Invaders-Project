@@ -85,7 +85,7 @@ void CEnemy::SetHit(bool _b)
 	m_bHit = _b;
 }
 
-bool CEnemy::Ishit() const
+bool CEnemy::IsHit() const
 {
 	return (m_bHit);
 }

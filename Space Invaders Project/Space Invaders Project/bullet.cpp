@@ -13,7 +13,7 @@
 
 // Implementation
 bool
-CBullet::Initialise(float _fPosX, float _fPosY, float _fVelocityY)
+CBullet::Initialise(float _fPosX, float _fPosY, float _fSpeedY)
 {
 	const int iMask = IDB_BulletMask; //ID 
 
@@ -26,7 +26,7 @@ CBullet::Initialise(float _fPosX, float _fPosY, float _fVelocityY)
 	m_fX = _fPosX;
 	m_fY = _fPosY;
 
-	m_fVelocityY = _fVelocityY;
+	m_fSpeedY = _fSpeedY;
 	//Sprite Size
 	CEntity::m_pSprite->SetDestSizeW(16);
 	CEntity::m_pSprite->SetDestSizeH(32);
@@ -56,20 +56,20 @@ CBullet::Draw()
 void
 CBullet::Process(float _fDeltaTick)
 {
-	m_fY += m_fVelocityY * _fDeltaTick;
+	m_fY += m_fSpeedY * _fDeltaTick;
 	CEntity::Process(_fDeltaTick);
 }
 
 float
-CBullet::GetVelocityY() const
+CBullet::GetSpeedY() const
 {
-	return (m_fVelocityY);
+	return (m_fSpeedY);
 }
 
 void
-CBullet::SetVelocityY(float _fY)
+CBullet::SetSpeedY(float _fY)
 {
-	m_fVelocityY = _fY;
+	m_fSpeedY = _fY;
 }
 
 float

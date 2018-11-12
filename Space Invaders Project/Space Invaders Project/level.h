@@ -36,15 +36,18 @@ public:
 	virtual void Draw();
 	virtual void Process(float _fDeltaTick);
 
+	void SetScore(int _i);
+	int GetScore();
 protected:
 	//Collision stuff goes here
 	void EnemyBulletWallCollision();
-	bool EnemyBulletCollision();
+	bool EnemyBulletCollision(float _fDeltatick);
 
 	void UpdateScoreText();
 	void DrawScore();
 	void DrawHealth();
 	void DrawFPS();
+	
 private:
 	CLevel(const CLevel& _kr);
 	CLevel& operator= (const CLevel& _kr);
