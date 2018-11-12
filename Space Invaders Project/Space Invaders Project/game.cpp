@@ -158,3 +158,19 @@ CGame::GetWindow()
 {
     return (m_hMainWindow);
 }
+
+void
+CGame::DrawFinalScore()
+{
+	HDC hdc = CGame::GetInstance().GetBackBuffer()->GetBFDC();
+
+	std::string _strScore = "Final Score: " + ToString(m_pLevel->GetScore());
+
+	int kiX = m_iWidth / 2;
+	int kiY = m_iHeight / 2;
+	SetBkMode(hdc, TRANSPARENT);
+
+	TextOutA(hdc, kiX - 130, kiY + 60, "Game Over!", 10);
+
+	TextOutA(hdc, kiX + 20, kiY + 60, _strScore.c_str(), static_cast<int>(_strScore.size()));
+}

@@ -25,7 +25,7 @@
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"
 
 CGame& rGame = CGame::GetInstance();
-HWND g_hDlg;
+HWND g_hDlgDebug;
 
 LRESULT CALLBACK WindowProc(HWND _hWnd,
 	UINT _uiMsg,
@@ -34,12 +34,21 @@ LRESULT CALLBACK WindowProc(HWND _hWnd,
 {
     switch (_uiMsg)
 	{
-		case VK_LCONTROL:
+		case WM_KEYDOWN:
 		{
-			ShowWindow(g_hDlg, SW_SHOWNORMAL);
-			break;
+			switch (_wParam)
+			{
+			case 0x44:
+			{
+				ShowWindow(g_hDlgDebug, SW_SHOWNORMAL);
+				break;
+			}
+			default:
+				break;
+			}
+			return (0);
 		}
-		
+	break;
 		case WM_DESTROY:
         {
             PostQuitMessage(0);
@@ -52,6 +61,41 @@ LRESULT CALLBACK WindowProc(HWND _hWnd,
     } 
 
     return (DefWindowProc(_hWnd, _uiMsg, _wParam, _lParam));
+}
+
+BOOL CALLBACK DIALOG(HWND _hwnd,
+	UINT _msg,
+	WPARAM _wparam,
+	LPARAM _lparam)
+{
+	switch (_msg)
+	{
+	case WM_COMMAND:
+	{
+		switch (LOWORD(_wparam))
+		{
+		case IDOK:
+		{
+			break;
+		}
+
+		default:
+			break;
+		}
+
+		break;
+	}
+	case WM_CLOSE:
+	{
+		ShowWindow(_hwnd, SW_HIDE);
+		return TRUE;
+		break;
+	}
+	default:
+		break;
+	}
+
+	return FALSE;
 }
 
 HWND 
@@ -99,35 +143,7 @@ CreateAndRegisterWindow(HINSTANCE _hInstance, int _iWidth, int _iHeight, LPCWSTR
     return (hwnd);
 }
 
-BOOL CALLBACK DIALOG(HWND _hwnd,
-	UINT _msg,
-	WPARAM _wparam,
-	LPARAM _lparam)
-{
-	switch (_msg)
-	{
-		case WM_COMMAND:
-		{
-			switch (LOWORD(_wparam))
-			{
-				case IDOK:
-				{
-					break;
-				}
 
-				default:
-					break;
-			}
-
-			break;
-		}
-
-		default:
-			break;
-	}
-
-	return false;
-}
 
 int WINAPI
 WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _iCmdshow)
@@ -140,6 +156,7 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 	const int kiHeight = 720;
 
     HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Space Invaders");
+	g_hDlgDebug = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), hwnd, (DLGPROC)DIALOG);
 
 	GetClientRect(hwnd, &_rect);
     if (!rGame.Initialise(_hInstance, hwnd, _rect.right, _rect.bottom))
@@ -161,7 +178,7 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
         }
     }
 	
-	g_hDlg = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), hwnd, (DLGPROC)DIALOG);
+	
 
     CGame::DestroyInstance();
 

@@ -47,6 +47,7 @@ public:
     CBackBuffer* GetBackBuffer();
     HINSTANCE GetAppInstance();
     HWND GetWindow();
+	void DrawFinalScore();
 	CLevel* GetLevel;
 
     // Singleton Methods

@@ -39,13 +39,13 @@ public:
 	virtual void Draw();
 	virtual void Process(float _fDeltaTick);
 
-	float GetVelocityY() const;
-	void SetVelocityY(float _fY);
+	float GetSpeedY() const;
+	void SetSpeedY(float _fY);
 
 	float GetRadius() const;
 
 protected:
-	float m_fVelocityY;
+	float m_fSpeedY;
 };
 
 

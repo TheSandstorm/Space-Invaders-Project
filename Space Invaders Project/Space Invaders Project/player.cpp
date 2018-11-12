@@ -136,7 +136,6 @@ void CPlayer::DeleteBullet()
 		delete m_pBullet;
 		m_pBullet = nullptr;
 	}
-
 }
 
 
