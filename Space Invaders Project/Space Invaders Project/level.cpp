@@ -504,7 +504,7 @@ bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 			if ((m_vecEnemies.at(j) != nullptr) && (j % 12 == _iStack))
 			{
 				m_vecEnemies.at(j)->Shoot(&m_vecpEnemyBullets);
-				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, m_dBulletSpeed, m_fDeltaTick);
+				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, static_cast<float>(m_dBulletSpeed), m_fDeltaTick);
 				return true;
 			}
 		}
@@ -545,7 +545,7 @@ void CLevel::Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyF
 	if (_fPlayerBulletSpeed != 0)
 	{
 		//m_fSpeedModifier = _fEnemySpeed;
-		m_pPlayer->SetBulletSpeed(static_cast<int>(_fPlayerBulletSpeed));
+		m_pPlayer->SetBulletSpeed(_fPlayerBulletSpeed);
 	}
 }
 void
