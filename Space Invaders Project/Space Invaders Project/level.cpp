@@ -209,7 +209,8 @@ CLevel::Process(float _fDeltaTick)
 	{
 		bBulletExists = BulletEnemyBulletCollision(_fDeltaTick);
 	}
-	
+
+	CheckForLoss();
 
 	//Alien Shoot
 	if (s_iShootFrameBuffer <= 0 && m_fAlienShootMod != -1)
@@ -609,4 +610,40 @@ void CLevel::ResetLevel()
 	//	m_pMotherShip = 0;
 	//	bMotherShipExists = false;
 	//}
+}
+void
+CLevel::CheckForLoss()
+{
+	for (unsigned int i = 0; i < m_vecEnemies.size(); ++i)
+	{
+
+		if (m_vecEnemies[i] != nullptr && !m_vecEnemies[i]->IsHit())
+		{
+			float fEnemyR = m_vecEnemies[i]->GetWidth() / 2;
+
+			float fEnemyX = m_vecEnemies[i]->GetX();
+			float fEnemyY = m_vecEnemies[i]->GetY();
+
+			float fPlayerX = m_pPlayer->GetX();
+			float fPlayerY = m_pPlayer->GetY();
+
+			float fPlayerH = m_pPlayer->GetHeight();
+			float fPlayerW = m_pPlayer->GetWidth();
+
+			if ((fEnemyX + fEnemyR > fPlayerX - fPlayerW / 2) &&
+				(fEnemyX - fEnemyR < fPlayerX + fPlayerW / 2) &&
+				(fEnemyY + fEnemyR > fPlayerY - fPlayerH / 2 + 18) &&
+				(fEnemyY - fEnemyR < fPlayerY + fPlayerH / 2) || m_vecEnemies[i]->GetY() > m_iHeight - 60)
+			{
+				while (m_pPlayer->GetLives() > 0)
+				{
+					m_pPlayer->LoseLife();
+					if (m_pPlayer->GetLives() == 0)
+					{
+						m_bLoseState = true;
+					}
+				}
+			}
+		}
+	}
 }

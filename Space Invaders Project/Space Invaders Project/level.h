@@ -42,6 +42,8 @@ public:
 
 	void ResetLevel();
 
+	void CheckForLoss();
+
 	void SetScore(int _i);
 	int GetScore();
 protected:

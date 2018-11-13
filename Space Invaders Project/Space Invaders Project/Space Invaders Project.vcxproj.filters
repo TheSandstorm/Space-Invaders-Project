@@ -150,5 +150,56 @@
     <Image Include="..\..\..\..\..\..\Joshua.O%27C7937\My folder\Games\Space Invaders\Space Invaders Project\Space Invaders Project\Sprite\BackGroundMask.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Sprite\block.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\blockMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Enemy Bullet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 1 mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 2 Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 3 Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Invader 3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\mothership.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\mothershipMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Player Bullet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\player.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\playerMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\Enemy Bullet Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\BackGround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sprite\BackGroundMask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
