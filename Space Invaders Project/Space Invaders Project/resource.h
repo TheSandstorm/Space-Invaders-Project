@@ -18,8 +18,12 @@
 #define IDB_BackGround                  143
 #define IDB_BackGroundMask              144
 #define IDD_DIALOG1                     145
+<<<<<<< HEAD
+#define IDD_DIALOG2                     147
+=======
 #define IDB_Block                       147
 #define IDB_BlockMask                   148
+>>>>>>> bf8130b6fdf903ca0122fa2915ef43a83d8d315c
 #define IDC_EDIT1                       1001
 #define IDC_EDIT2                       1004
 #define IDC_EDIT3                       1006
