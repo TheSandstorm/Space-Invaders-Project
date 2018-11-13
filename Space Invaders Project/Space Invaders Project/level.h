@@ -36,6 +36,8 @@ public:
 	virtual void Draw();
 	virtual void Process(float _fDeltaTick);
 
+	void Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyFirerate, float _fPlayerBulletSpeed);
+
 	void SetScore(int _i);
 	int GetScore();
 protected:
@@ -50,7 +52,7 @@ protected:
 	void UpdateHealthText();
 	void DrawHealth();
 	void DrawFPS();
-	void Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyFirerate, float _fPlayerBulletSpeed);
+	
 
 private:
 	CLevel(const CLevel& _kr);

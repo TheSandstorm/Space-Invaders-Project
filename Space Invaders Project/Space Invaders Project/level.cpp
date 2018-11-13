@@ -518,7 +518,7 @@ void CLevel::Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyF
 	}
 	if (_fEnemyBulletSpeed != 0)
 	{
-		m_fAlienShootMod = _fEnemySpeed;
+		m_fAlienShootMod = static_cast<int>(_fEnemySpeed);
 	}
 	if (_fEnemyFirerate != 0)
 	{

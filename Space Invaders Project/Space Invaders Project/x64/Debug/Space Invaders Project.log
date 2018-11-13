@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-﻿  level.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  game.cpp
-  Space Invaders Project.vcxproj -> D:\Users\john.str8228\Documents\GitHub\Space-Invaders-Project\Space Invaders Project\x64\Debug\Space Invaders Project.exe
-=======
 ﻿  Main.cpp
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(86): error C2819: type 'CGame' does not have an overloaded member 'operator ->'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\game.h(35): note: see declaration of 'CGame'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(86): note: did you intend to use '.' instead?
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(86): error C2232: '->CGame::GetInstance': left operand has 'class' type, use '.'
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(86): error C2227: left of '->GetLevel' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(86): error C2227: left of '->Modify' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(95): error C2819: type 'CGame' does not have an overloaded member 'operator ->'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\game.h(35): note: see declaration of 'CGame'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(95): note: did you intend to use '.' instead?
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(95): error C2232: '->CGame::GetInstance': left operand has 'class' type, use '.'
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(95): error C2227: left of '->GetLevel' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(95): error C2227: left of '->Modify' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(104): error C2819: type 'CGame' does not have an overloaded member 'operator ->'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\game.h(35): note: see declaration of 'CGame'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(104): note: did you intend to use '.' instead?
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(104): error C2232: '->CGame::GetInstance': left operand has 'class' type, use '.'
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(104): error C2227: left of '->GetLevel' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(104): error C2227: left of '->Modify' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(113): error C2819: type 'CGame' does not have an overloaded member 'operator ->'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\game.h(35): note: see declaration of 'CGame'
-  d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(113): note: did you intend to use '.' instead?
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(113): error C2232: '->CGame::GetInstance': left operand has 'class' type, use '.'
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(113): error C2227: left of '->GetLevel' must point to class/struct/union/generic type
-d:\users\joshua.o'c7937\my folder\games\space invaders\space invaders project\space invaders project\main.cpp(113): error C2227: left of '->Modify' must point to class/struct/union/generic type
->>>>>>> d3302ad468c3166cff31445f21862233d87aa1f8
+  LINK : D:\Users\john.str8228\Documents\GitHub\Space-Invaders-Project\Space Invaders Project\x64\Debug\Space Invaders Project.exe not found or not built by the last incremental link; performing full link
+  Space Invaders Project.vcxproj -> D:\Users\john.str8228\Documents\GitHub\Space-Invaders-Project\Space Invaders Project\x64\Debug\Space Invaders Project.exe

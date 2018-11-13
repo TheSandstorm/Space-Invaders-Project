@@ -82,8 +82,7 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 				case IDC_EDIT1:
 				{
 					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT1);
-
-					rGame->GetInstance()->GetLevel()->Modify(newValue, 0, 0, 0);
+					rGame.GetInstance().GetLevel()->Modify(newValue, 0, 0, 0);
 					break;
 				}
 
@@ -91,8 +90,7 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 				case IDC_EDIT2:
 				{
 					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT2);
-
-					rGame->GetInstance()->GetLevel()->Modify(0, newValue, 0, 0);
+					rGame.GetInstance().GetLevel()->Modify(newValue, 0, 0, 0);
 					break;
 				}
 
@@ -100,8 +98,7 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 				case IDC_EDIT3:
 				{
 					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT3);
-
-					rGame->GetInstance()->GetLevel()->Modify(0, 0, newValue, 0);
+					rGame.GetInstance().GetLevel()->Modify(newValue, 0, 0, 0);
 					break;
 				}
 
@@ -109,8 +106,7 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 				case IDC_EDIT4:
 				{
 					float newValue = ReadFromEditBox(_hwnd, IDC_EDIT4);
-
-					rGame->GetInstance()->GetLevel()->Modify(0, 0, 0, newValue);
+					rGame.GetInstance().GetLevel()->Modify(newValue, 0, 0, 0);
 					break;
 				}
 
