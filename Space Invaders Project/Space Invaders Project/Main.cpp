@@ -22,6 +22,7 @@
 #include "utils.h"
 #include "resource.h"
 #include "level.h"
+#include "player.h"
 
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"
 
@@ -52,7 +53,6 @@ LRESULT CALLBACK WindowProc(HWND _hWnd,
 			return (0);
 		}
 
-	break;
 		case WM_DESTROY:
         {
             PostQuitMessage(0);
