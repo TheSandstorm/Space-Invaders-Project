@@ -38,6 +38,10 @@ public:
 
 	void Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyFirerate, float _fPlayerBulletSpeed);
 
+	void CheckForWin();
+
+	void ResetLevel();
+
 	void SetScore(int _i);
 	int GetScore();
 protected:
@@ -87,6 +91,7 @@ private:
 	float m_fTime;
 	int m_iScore;
 	bool m_bLoseState;
+	double m_dBulletSpeed;
 
 	//Debug values
 	int m_fAlienShootMod;

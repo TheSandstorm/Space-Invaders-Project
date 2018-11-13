@@ -40,7 +40,7 @@ CLevel::CLevel()
 	m_fSpeedModifier = 1.0f;
 	m_fAlienShootMod = 500;
 	m_iScore = 0;
-
+	m_dBulletSpeed = 520.0;
 	m_fpsCounter = nullptr;
 	m_pPlayer = nullptr;
 }
@@ -502,7 +502,7 @@ bool CLevel::AlienShoot(int _iStack, float _fDeltaTick)
 			if ((m_vecEnemies.at(j) != nullptr) && (j % 12 == _iStack))
 			{
 				m_vecEnemies.at(j)->Shoot(&m_vecpEnemyBullets);
-				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, 520.0, m_fDeltaTick);
+				m_vecpEnemyBullets.back()->Initialise(m_vecEnemies.at(j)->GetX(), m_vecEnemies.at(j)->GetY() + 15, m_dBulletSpeed, m_fDeltaTick);
 				return true;
 			}
 		}
@@ -515,17 +515,98 @@ void CLevel::Modify(float _fEnemySpeed, float _fEnemyBulletSpeed, float _fEnemyF
 	if (_fEnemySpeed != 0)
 	{
 		m_fSpeedModifier = 1 / _fEnemySpeed;
+		for (unsigned int i = 0; i < m_vecEnemies.size(); ++i)
+		{
+			if (m_vecEnemies.at(i) != nullptr)
+			{
+				m_vecEnemies.at(i)->SetSpeed(m_fSpeedModifier);
+			}
+		}
 	}
 	if (_fEnemyBulletSpeed != 0)
 	{
-		m_fAlienShootMod = static_cast<int>(_fEnemySpeed);
+		for (unsigned int i = 0; i < m_vecpEnemyBullets.size(); ++i)
+		{
+			if (m_vecpEnemyBullets.at(i) != nullptr)
+			{
+				m_vecpEnemyBullets.at(i)->SetSpeedY(_fEnemyBulletSpeed);
+			}
+		}
+		m_dBulletSpeed = _fEnemyBulletSpeed;
 	}
 	if (_fEnemyFirerate != 0)
 	{
 		//m_fSpeedModifier = _fEnemySpeed;
+		m_fAlienShootMod = static_cast<int>(_fEnemyFirerate);
+		s_iShootFrameBuffer = 0;
 	}
 	if (_fPlayerBulletSpeed != 0)
 	{
 		//m_fSpeedModifier = _fEnemySpeed;
+		m_pPlayer->SetBulletSpeed(static_cast<int>(_fPlayerBulletSpeed));
 	}
+}
+void
+CLevel::CheckForWin()
+{
+	for (unsigned int i = 0; i < m_vecEnemies.size(); ++i)
+	{
+		if (m_vecEnemies[i] != nullptr && !m_vecEnemies[i]->IsHit())
+		{
+			return;
+		}
+	}
+	ResetLevel();
+	Sleep(1000);
+
+	CLevel::Initialise(m_iWidth, m_iHeight);
+	m_fSpeedModifier *= 0.85f;
+}
+void CLevel::ResetLevel()
+{
+	while (m_vecEnemies.size() > 0)
+	{
+		CEnemy* pEnemy = m_vecEnemies[m_vecEnemies.size() - 1];
+
+		m_vecEnemies.pop_back();
+
+		delete pEnemy;
+		pEnemy = 0;
+	}
+
+	//while (m_vecpBarrierBlocks.size() > 0)
+	//{
+	//	CBarrierBlock* pBarrier = m_vecpBarrierBlocks[m_vecpBarrierBlocks.size() - 1];
+	//	m_vecpBarrierBlocks.pop_back();
+
+	//	delete pBarrier;
+	//	pBarrier = nullptr;
+	//}
+
+	while (m_vecpEnemyBullets.size() != 0)
+	{
+		CBullet* pEnemyBullet = m_vecpEnemyBullets[m_vecpEnemyBullets.size() - 1];
+
+		m_vecpEnemyBullets.pop_back();
+
+		if (pEnemyBullet != nullptr)
+		{
+			delete pEnemyBullet;
+		}
+		pEnemyBullet = nullptr;
+	}
+
+	if (m_pBullet != nullptr)
+	{
+		m_pPlayer->DeleteBullet();
+		m_pBullet = nullptr;
+		bBulletExists = false;
+	}
+
+	//if (bMotherShipExists == true)
+	//{
+	//	delete m_pMotherShip;
+	//	m_pMotherShip = 0;
+	//	bMotherShipExists = false;
+	//}
 }
