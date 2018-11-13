@@ -28,6 +28,7 @@
 
 CGame& rGame = CGame::GetInstance();
 HWND g_hDlgDebug;
+HWND g_hDlgFinished;
 
 LRESULT CALLBACK WindowProc(HWND _hWnd,
 	UINT _uiMsg,
@@ -130,6 +131,42 @@ BOOL CALLBACK DIALOG(HWND _hwnd,
 
 	return FALSE;
 }
+BOOL CALLBACK DIALOG2(HWND _hwnd,
+	UINT _msg,
+	WPARAM _wparam,
+	LPARAM _lparam)
+{
+	switch (_msg)
+	{
+		switch (_wparam)
+		{
+			case IDOK:
+			{
+				rGame.GetLevel()->ResetLevel();
+
+				rGame.GetLevel()->SetLoseState(false);
+				break;
+			}
+			case IDCANCEL:
+			{
+				PostQuitMessage(WM_QUIT);
+				return TRUE;
+				break;
+			}
+		}
+		case WM_CLOSE:
+		{
+			ShowWindow(_hwnd, SW_HIDE);
+			PostQuitMessage(WM_QUIT);
+			return TRUE;
+			break;
+		}
+		default:
+			break;
+	}
+
+	return FALSE;
+}
 
 HWND 
 CreateAndRegisterWindow(HINSTANCE _hInstance, int _iWidth, int _iHeight, LPCWSTR _pcTitle)
@@ -188,7 +225,7 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 
     HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Space Invaders");
 	g_hDlgDebug = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), hwnd, (DLGPROC)DIALOG);
-
+	g_hDlgFinished = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DIALOG2), hwnd, (DLGPROC)DIALOG);
 	GetClientRect(hwnd, &_rect);
     if (!rGame.Initialise(_hInstance, hwnd, _rect.right, _rect.bottom))
     {
@@ -208,7 +245,7 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
             rGame.ExecuteOneFrame();
 			if (rGame.GetLevel() != nullptr && rGame.GetLevel()->GetLoseState())
 			{
-				//ShowWindow
+				//ShowWindow(g_hDlgFinished, SW_SHOWNORMAL);
 			}
         }
     }
