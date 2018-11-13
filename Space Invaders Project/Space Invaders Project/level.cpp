@@ -204,6 +204,7 @@ CLevel::Process(float _fDeltaTick)
 	if (bBulletExists == true)
 	{
 		bBulletExists=EnemyBulletCollision(_fDeltaTick);
+		CheckForWin();
 	}
 	if (bBulletExists == true)
 	{
@@ -638,7 +639,7 @@ CLevel::CheckForLoss()
 				while (m_pPlayer->GetLives() > 0)
 				{
 					m_pPlayer->LoseLife();
-					if (m_pPlayer->GetLives() == 0)
+					if (m_pPlayer->GetLives() <= 0)
 					{
 						m_bLoseState = true;
 					}

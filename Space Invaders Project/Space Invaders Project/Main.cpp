@@ -206,6 +206,10 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
         else
         {
             rGame.ExecuteOneFrame();
+			if (rGame.GetLevel() != nullptr && rGame.GetLevel()->GetLoseState())
+			{
+				//ShowWindow
+			}
         }
     }
 	
